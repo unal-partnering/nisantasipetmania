@@ -45,32 +45,49 @@
             background-color: #ffffff;
         }
 
-        /* Navbar Özelleştirmesi (İnceltildi ve Düzenlendi) */
+        /* Navbar Özelleştirmesi */
         .navbar {
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 15px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
-            padding: 8px 0; /* Daha ince bir görünüm için padding azaltıldı */
+            padding: 8px 0;
         }
         
-        .navbar-brand img {
-            height: 45px; /* Logo boyutu küçültüldü */
-            max-width: 200px; /* Kırık link durumunda taşmayı engeller */
-            object-fit: contain;
+        .navbar-brand {
+            text-decoration: none;
             transition: transform 0.3s ease;
         }
 
-        .navbar-brand:hover img {
-            transform: scale(1.05);
+        .navbar-brand:hover {
+            transform: scale(1.02);
         }
 
-        /* Eğer logo kırılırsa gösterilecek alt metnin stilini kısıtlarız */
-        .navbar-brand {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary-color) !important;
-            overflow: hidden;
-            white-space: nowrap;
+        .navbar-brand img {
+            height: 45px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Logo Yanındaki Marka Metni */
+        .brand-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-title .main-text {
+            font-weight: 800;
+            font-size: 17px;
+            color: var(--secondary-color);
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-title .sub-text {
+            font-weight: 800;
+            font-size: 11px;
+            color: var(--primary-color);
+            letter-spacing: 1px;
         }
 
         .nav-link {
@@ -115,7 +132,7 @@
         /* Hero Section */
         .hero {
             position: relative;
-            min-height: 90vh; /* Yükseklik biraz daha dengelendi */
+            min-height: 90vh;
             display: flex;
             align-items: center;
             background: linear-gradient(rgba(34, 40, 49, 0.7), rgba(34, 40, 49, 0.5)), url('https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
@@ -147,10 +164,10 @@
             font-size: 0.9rem;
         }
 
-        /* Özellikler Kartları (Sorunlu Kayma Düzeltildi) */
+        /* Özellikler Kartları */
         .features-section {
             background-color: var(--light-bg);
-            padding: 60px 0 30px 0; /* Negatif margin yerine temiz bir padding ile ayrıldı */
+            padding: 60px 0 30px 0;
         }
 
         .feature-box {
@@ -293,7 +310,7 @@
             color: var(--primary-color);
         }
 
-        /* Yüzen İşlem Butonları (Sağ Alt) */
+        /* Yüzen İşlem Butonları */
         .floating-buttons {
             position: fixed;
             bottom: 30px;
@@ -325,7 +342,7 @@
         .btn-instagram { background-color: #E1306C; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-phone { background-color: var(--primary-color); }
 
-        /* UNAL Partnerlik Demo Badge (Sol Alt) */
+        /* UNAL Partnerlik Demo Badge */
         .unal-badge {
             position: fixed;
             bottom: 30px;
@@ -378,6 +395,8 @@
 
         /* Responsive Ayarları */
         @media (max-width: 768px) {
+            .brand-title .main-text { font-size: 15px; }
+            .brand-title .sub-text { font-size: 10px; }
             .hero h1 { font-size: 2.5rem; }
             .hero { text-align: center; }
             .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
@@ -395,10 +414,15 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <!-- Kırık link taşmalarını önlemek için alt metni kısaltıldı -->
-                <img src="logo.jpg" alt="Petmania Logo">
+            <!-- Marka Logosu ve İsmi -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.jpg" alt="Petmania Logo" class="me-2 rounded-2">
+                <div class="brand-title">
+                    <span class="main-text">NİŞANTAŞI PETMANIA</span>
+                    <span class="sub-text">VETERİNER KLİNİĞİ</span>
+                </div>
             </a>
+            
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars fs-3" style="color: var(--primary-color);"></i>
             </button>
@@ -411,7 +435,7 @@
                     <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
                 </ul>
                 <div class="d-none d-lg-block">
-                    <!-- Acil Arama Butonu - İnceltildi ve Şıklaştırıldı -->
+                    <!-- Acil Arama Butonu -->
                     <a href="tel:02122347300" class="btn btn-custom shadow-sm">
                         <i class="fas fa-phone-alt me-2"></i> (0212) 234 73 00
                     </a>
@@ -438,7 +462,7 @@
         </div>
     </section>
 
-    <!-- Özellikler (Hatalı Geçiş Düzeltildi, Temiz Arka Plan) -->
+    <!-- Özellikler -->
     <section class="features-section">
         <div class="container">
             <div class="row g-4">
@@ -472,7 +496,6 @@
         <div class="container py-4">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                    <!-- Kırık link sorunu yaşatmayacak güvenilir, yüksek kaliteli yeni bir veteriner görseli eklendi -->
                     <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=800&q=80" alt="Veteriner Hekim" class="img-fluid rounded-4 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1628009368231-7bb7cbcb8122?auto=format&fit=crop&w=800&q=80'">
                 </div>
                 <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
@@ -594,7 +617,6 @@
     <section id="iletisim" class="py-5" style="background-color: var(--light-bg);">
         <div class="container py-5">
             <div class="row g-0 rounded-4 overflow-hidden shadow-lg bg-white" data-aos="zoom-in">
-                <!-- İletişim Bilgileri (WhatsApp Kaldırıldı, Adres ve No Güncellendi) -->
                 <div class="col-lg-5">
                     <div class="contact-info-box">
                         <h3 class="fw-bold mb-4">Bize Ulaşın</h3>
@@ -645,7 +667,13 @@
         <div class="container">
             <div class="row text-center text-md-start">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <img src="logo.jpg" alt="Petmania Logo" style="height: 40px; margin-bottom: 15px; border-radius: 5px;">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                        <img src="logo.jpg" alt="Petmania Logo" style="height: 40px; border-radius: 5px; margin-right: 10px;">
+                        <div>
+                            <span style="display: block; font-weight: 800; color: white; line-height: 1;">NİŞANTAŞI PETMANIA</span>
+                            <span style="font-size: 10px; color: var(--primary-color); font-weight: bold; letter-spacing: 1px;">VETERİNER KLİNİĞİ</span>
+                        </div>
+                    </div>
                     <p class="text-sm opacity-75">Sevgiyle, Bilimle, Şefkatle... Dostlarınız emin ellerde.</p>
                 </div>
                 <div class="col-md-6 text-md-end d-flex flex-column justify-content-center">
@@ -659,7 +687,7 @@
         </div>
     </footer>
 
-    <!-- UNAL Partnerlik Demo Badge (Sol Alt) -->
+    <!-- UNAL Partnerlik Demo Badge -->
     <a href="#" class="unal-badge">
         <img src="unal.jpg" alt="Unal Partnerlik">
         <div class="text-area">
@@ -668,7 +696,7 @@
         </div>
     </a>
 
-    <!-- Sağ Alt Yüzen İletişim Butonları (Instagram Eklendi, WhatsApp Kaldırıldı) -->
+    <!-- Sağ Alt Yüzen İletişim Butonları -->
     <div class="floating-buttons">
         <a href="tel:02122347300" class="float-btn btn-phone" title="Hemen Ara">
             <i class="fas fa-phone-alt"></i>
@@ -691,7 +719,7 @@
             offset: 100    
         });
 
-        // Navbar Scroll Efekti (Aşağı kaydırınca gölge ekle)
+        // Navbar Scroll Efekti
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
