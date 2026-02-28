@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Meta ve SEO Optimizasyonu -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nişantaşı Petmania Veteriner Kliniği - Uzman hekim kadromuz ve modern tıbbi donanımımızla minik dostlarınız için kesintisiz, şefkatli sağlık hizmeti sunuyoruz.">
+    <meta name="keywords" content="nişantaşı veteriner, petmania veteriner, teşvikiye veteriner, istanbul acil veteriner, kedi köpek aşılama, ferhat bey veteriner">
+    <meta name="author" content="UNAL Partnerlik">
+    <title>Nişantaşı Petmania Veteriner Kliniği | Uzman Bakım</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nişantaşı Petmania Veteriner Kliniği">
+    <meta property="og:description" content="Minik dostlarınızın sağlığı bizim için her şeyden önemli. Uzman Kadro ile yanınızdayız.">
+    <meta property="og:image" content="logo.jpg">
+    <meta property="og:url" content="https://www.nisantasipetmania.com">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Kütüphaneler (Bootstrap, FontAwesome, AOS) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Özel CSS -->
+    <style>
+        :root {
+            /* Logodan ilham alınan ana renkler */
+            --primary-color: #D65A31; /* Sıcak Kiremit/Turuncu */
+            --primary-hover: #b54724;
+            --secondary-color: #222831; /* Koyu Lacivert/Siyah */
+            --light-bg: #f9f9fa;
+            --text-gray: #4b5563;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--secondary-color);
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+        /* Navbar Özelleştirmesi (İnceltildi ve Düzenlendi) */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            padding: 8px 0; /* Daha ince bir görünüm için padding azaltıldı */
+        }
+        
+        .navbar-brand img {
+            height: 45px; /* Logo boyutu küçültüldü */
+            max-width: 200px; /* Kırık link durumunda taşmayı engeller */
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Eğer logo kırılırsa gösterilecek alt metnin stilini kısıtlarız */
+        .navbar-brand {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--secondary-color) !important;
+            margin: 0 8px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 700;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-custom:hover {
+            background-color: transparent;
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh; /* Yükseklik biraz daha dengelendi */
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(34, 40, 49, 0.7), rgba(34, 40, 49, 0.5)), url('https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            color: #e5e7eb;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-badge {
+            background: rgba(214, 90, 49, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Özellikler Kartları (Sorunlu Kayma Düzeltildi) */
+        .features-section {
+            background-color: var(--light-bg);
+            padding: 60px 0 30px 0; /* Negatif margin yerine temiz bir padding ile ayrıldı */
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border-bottom: 4px solid #eee;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(214, 90, 49, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hizmetler */
+        .services-section {
+            background-color: white;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .service-list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+            border: 1px solid #f1f1f1;
+        }
+
+        .service-list-icon {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        /* Yorumlar */
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            margin: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        /* İletişim Form & Harita */
+        .contact-info-box {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            height: 100%;
+        }
+
+        .contact-info-box a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info-box a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-info-box i {
+            width: 30px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border-radius: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #d1d5db;
+            padding: 60px 0 20px;
+        }
+        
+        footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Yüzen İşlem Butonları (Sağ Alt) */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-instagram { background-color: #E1306C; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-phone { background-color: var(--primary-color); }
+
+        /* UNAL Partnerlik Demo Badge (Sol Alt) */
+        .unal-badge {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+            border: 1px solid #eee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .unal-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .unal-badge img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .unal-badge .text-area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .unal-badge .title {
+            font-weight: 800;
+            color: #1a202c;
+            font-size: 13px;
+            line-height: 1.2;
+        }
+
+        .unal-badge .subtitle {
+            font-size: 10px;
+            color: #718096;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Ayarları */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero { text-align: center; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
+            .floating-buttons { bottom: 20px; right: 20px; }
+            .float-btn { width: 50px; height: 50px; font-size: 24px; }
+            .unal-badge { bottom: 20px; left: 20px; padding: 8px 15px; }
+            .unal-badge .title { font-size: 12px; }
+            .unal-badge img { width: 30px; height: 30px; }
+            .contact-info-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- Kırık link taşmalarını önlemek için alt metni kısaltıldı -->
+                <img src="logo.jpg" alt="Petmania Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars fs-3" style="color: var(--primary-color);"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#anasayfa">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hizmetler">Hizmetlerimiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#yorumlar">Yorumlar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+                </ul>
+                <div class="d-none d-lg-block">
+                    <!-- Acil Arama Butonu - İnceltildi ve Şıklaştırıldı -->
+                    <a href="tel:02122347300" class="btn btn-custom shadow-sm">
+                        <i class="fas fa-phone-alt me-2"></i> (0212) 234 73 00
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="anasayfa" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="hero-badge"><i class="fas fa-heartbeat me-2"></i> Şefkatli Veteriner Kliniği</div>
+                    <h1>Dostlarınızın Sağlığı <br> <span style="color: var(--primary-color);">Emin Ellerde</span></h1>
+                    <p class="lead">Nişantaşı Petmania Veteriner Kliniği olarak, modern tıbbi donanımımız ve şefkatli uzman kadromuzla minik dostlarınız için en iyisini sunuyoruz.</p>
+                    <div class="hero-buttons mt-4">
+                        <a href="tel:02122347300" class="btn btn-custom btn-lg me-md-3 mb-3 mb-md-0 px-5">
+                            <i class="fas fa-phone me-2"></i> Hemen Bizi Ara
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Özellikler (Hatalı Geçiş Düzeltildi, Temiz Arka Plan) -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                        <h4>Uzman Hekimler</h4>
+                        <p class="text-muted mb-0">Alanında deneyimli hekim kadromuz ile doğru teşhis ve güvenilir tedavi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Acil Servis</h4>
+                        <p class="text-muted mb-0">Acil müdahale gerektiren durumlarda donanımlı kliniğimizle yanınızdayız.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                        <h4>Modern Teknoloji</h4>
+                        <p class="text-muted mb-0">İleri teknoloji laboratuvar ve görüntüleme sistemleri ile hızlı sonuç.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hakkımızda Section -->
+    <section id="hakkimizda" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <!-- Kırık link sorunu yaşatmayacak güvenilir, yüksek kaliteli yeni bir veteriner görseli eklendi -->
+                    <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=800&q=80" alt="Veteriner Hekim" class="img-fluid rounded-4 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1628009368231-7bb7cbcb8122?auto=format&fit=crop&w=800&q=80'">
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h5 style="color: var(--primary-color); font-weight: 700;">HAKKIMIZDA</h5>
+                    <h2 class="fw-bold mb-4">Sevgiyle, Bilimle, Şefkatle...</h2>
+                    <p class="text-muted"><strong>Nişantaşı Petmania Veteriner Kliniği</strong> olarak, patili dostlarınızın ailemizin bir parçası olduğunu biliyoruz. Kuruluşumuzdan bu yana hem evcil hayvanlara hem de sokak hayvanlarına aynı titizlikle yaklaşıyor, sağlığını önemsiyoruz.</p>
+                    <p class="text-muted">Ferhat Bey ve uzman ekibimiz; düzenli aşılamadan cerrahi operasyonlara, teşhisten mikroçip uygulamasına kadar geniş bir yelpazede hizmet vermektedir. Yüzlerce hastamızın sağlıklı günlere dönmesine aracılık etmenin gururunu yaşıyoruz.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Sokak hayvanlarına duyarlı yaklaşım</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Güvenilir ve şeffaf bilgilendirme</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Stressiz ve sevgi dolu muayene ortamı</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetlerimiz Section -->
+    <section id="hizmetler" class="services-section py-5">
+        <div class="container py-5">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Klinik Hizmetlerimiz</h2>
+                <div class="line"></div>
+                <p class="text-muted mt-3">Can dostunuzun ihtiyacı olan tüm sağlık hizmetleri tek çatı altında.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-list-item">
+                        <i class="fas fa-stethoscope service-list-icon"></i>
+                        <div>
+                            <h5 class="fw-bold">Poliklinik & Muayene</h5>
+                            <p class="text-muted text-sm mb-0">Detaylı genel sağlık taramaları ve hastalık teşhisleri uzman hekimlerimizce yapılır.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-list-item">
+                        <i class="fas fa-syringe service-list-icon"></i>
+                        <div>
+                            <h5 class="fw-bold">Aşılama & Parazit</h5>
+                            <p class="text-muted text-sm mb-0">Takvime uygun aşı ve parazit uygulamaları ile koruyucu hekimlik hizmetleri.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-list-item">
+                        <i class="fas fa-cut service-list-icon"></i>
+                        <div>
+                            <h5 class="fw-bold">Cerrahi Müdahaleler</h5>
+                            <p class="text-muted text-sm mb-0">Steril ameliyathane koşullarında yumuşak doku ve ortopedi operasyonları.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-list-item">
+                        <i class="fas fa-vial service-list-icon"></i>
+                        <div>
+                            <h5 class="fw-bold">Laboratuvar & Analiz</h5>
+                            <p class="text-muted text-sm mb-0">Kan, idrar, biyokimya ve hormon testleri anında kliniğimizde sonuçlandırılır.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="service-list-item">
+                        <i class="fas fa-tooth service-list-icon"></i>
+                        <div>
+                            <h5 class="fw-bold">Ağız ve Diş Sağlığı</h5>
+                            <p class="text-muted text-sm mb-0">Tartar temizliği, diş çekimi ve ağız içi enfeksiyon tedavileri.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="service-list-item">
+                        <i class="fas fa-microchip service-list-icon"></i>
+                        <div>
+                            <h5 class="fw-bold">Mikroçip Uygulaması</h5>
+                            <p class="text-muted text-sm mb-0">Yurtdışı çıkış işlemleri, resmi kayıtlar ve karne düzenlemeleri.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Müşteri Yorumları -->
+    <section id="yorumlar" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Bizim İçin Ne Dediler?</h2>
+                <div class="line"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="font-italic text-muted">"Merhabalar ben Ferhat Bey ile yaklaşık 6 senedir tanışıyorum ve 100 tane sokak hayvanıma ve evde bulunan hayvanlarıma bakmıştır, hiç bir sorun yaşamadım. Gerçekten şefkatli ve uzman bir yaklaşım."</p>
+                        <h6 class="fw-bold mb-0">- Teslime Kar</h6>
+                        <small class="text-muted">Google Yorumu</small>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="font-italic text-muted">"Ferhat bey ve ekibine güveniyorum.. Bu konuda çok mağdur edilmiş biri olarak kendisini tanıdığıma çok sevindim.. Sokak hayvanları konusunda da her türlü yardımı sağlıyorlar. Teşekkürler."</p>
+                        <h6 class="fw-bold mb-0">- Derya Balkan</h6>
+                        <small class="text-muted">Google Yorumu</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim & Harita Section -->
+    <section id="iletisim" class="py-5" style="background-color: var(--light-bg);">
+        <div class="container py-5">
+            <div class="row g-0 rounded-4 overflow-hidden shadow-lg bg-white" data-aos="zoom-in">
+                <!-- İletişim Bilgileri (WhatsApp Kaldırıldı, Adres ve No Güncellendi) -->
+                <div class="col-lg-5">
+                    <div class="contact-info-box">
+                        <h3 class="fw-bold mb-4">Bize Ulaşın</h3>
+                        <p class="mb-4 text-white-50">Randevu ve bilgi almak için bizi her zaman arayabilir, sitemizi ziyaret edebilirsiniz.</p>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-map-marker-alt fs-4 me-3"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Adres</h6>
+                                <p class="mb-0 text-sm opacity-75">11, Teşvikiye, Akkavak Sok.,<br>34365 Şişli / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-phone-alt fs-4 me-3"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Telefon 1</h6>
+                                <p class="mb-0"><a href="tel:02122347300" class="opacity-75">(0212) 234 73 00</a></p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-phone fs-4 me-3"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Telefon 2</h6>
+                                <p class="mb-0"><a href="tel:+902122306901" class="opacity-75">+90 212 230 69 01</a></p>
+                            </div>
+                        </div>
+
+                        <div class="mt-5">
+                            <h6 class="fw-bold mb-3">Bizi Takip Edin</h6>
+                            <a href="https://www.instagram.com/explore/locations/881027208/nisantasi-petmania-veteriner-klinigi/?hl=en" target="_blank" class="btn btn-outline-light rounded-circle me-2" style="width: 40px; height: 40px; padding: 7px;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Harita -->
+                <div class="col-lg-7 map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.682333671239!2d28.9912753!3d41.0538964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab70669ab3683%3A0xf65fb18a80d5f308!2sTe%C5%9Fvikiye%2C%20Akkavak%20Sk.%20No%3A11%2C%2034365%20%C5%9Ei%C5%9Fli%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <img src="logo.jpg" alt="Petmania Logo" style="height: 40px; margin-bottom: 15px; border-radius: 5px;">
+                    <p class="text-sm opacity-75">Sevgiyle, Bilimle, Şefkatle... Dostlarınız emin ellerde.</p>
+                </div>
+                <div class="col-md-6 text-md-end d-flex flex-column justify-content-center">
+                    <p class="mb-2">
+                        <a href="https://www.instagram.com/explore/locations/881027208/nisantasi-petmania-veteriner-klinigi/?hl=en" target="_blank" class="me-3"><i class="fab fa-instagram fs-4"></i></a>
+                    </p>
+                    <p class="mb-0">&copy; 2026 Nişantaşı Petmania Veteriner Kliniği.</p>
+                    <p class="mb-0 text-sm opacity-50">Tüm Hakları Saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- UNAL Partnerlik Demo Badge (Sol Alt) -->
+    <a href="#" class="unal-badge">
+        <img src="unal.jpg" alt="Unal Partnerlik">
+        <div class="text-area">
+            <span class="title">UNAL PARTNERLİK</span>
+            <span class="subtitle">DEMO WEBSİTESİDİR</span>
+        </div>
+    </a>
+
+    <!-- Sağ Alt Yüzen İletişim Butonları (Instagram Eklendi, WhatsApp Kaldırıldı) -->
+    <div class="floating-buttons">
+        <a href="tel:02122347300" class="float-btn btn-phone" title="Hemen Ara">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://www.instagram.com/explore/locations/881027208/nisantasi-petmania-veteriner-klinigi/?hl=en" target="_blank" class="float-btn btn-instagram" title="Instagram Profilimiz">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- JS Kütüphaneleri -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Animasyon ve Fonksiyonellik Scriptleri -->
+    <script>
+        // AOS Animasyon Başlatma
+        AOS.init({
+            duration: 900, 
+            once: true,    
+            offset: 100    
+        });
+
+        // Navbar Scroll Efekti (Aşağı kaydırınca gölge ekle)
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "5px 0";
+                navbar.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
+            } else {
+                navbar.style.padding = "8px 0";
+                navbar.style.boxShadow = "0 2px 15px rgba(0,0,0,0.06)";
+            }
+        });
+    </script>
+</body>
+</html>
